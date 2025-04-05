@@ -596,18 +596,18 @@ export async function getSingBoxWarpConfig (request, env) {
     config.route.rule_set = rule_set;
     const selector = config.outbounds[0];
     const warpUrlTest = config.outbounds[1];
-    selector.outbounds = [`💦 Warp - Best Ping 🚀`, `💦 WoW - Best Ping 🚀`];
+    selector.outbounds = [`BacheBazCarti Warp - Best Ping 🚀`, `BacheBazCarti WoW - Best Ping 🚀`];
     config.outbounds.splice(2, 0, structuredClone(warpUrlTest));
     const WoWUrlTest = config.outbounds[2];
-    warpUrlTest.tag = `💦 Warp - Best Ping 🚀`;
+    warpUrlTest.tag = `BacheBazCarti Warp - Best Ping 🚀`;
     warpUrlTest.interval = `${proxySettings.bestWarpInterval}s`;
-    WoWUrlTest.tag = `💦 WoW - Best Ping 🚀`;
+    WoWUrlTest.tag = `BacheBazCarti WoW - Best Ping 🚀`;
     WoWUrlTest.interval = `${proxySettings.bestWarpInterval}s`;
     const warpRemarks = [], WoWRemarks = [];
 
     warpEndpoints.split(',').forEach( (endpoint, index) => {
-        const warpRemark = `💦 ${index + 1} - Warp 🇮🇷`;
-        const WoWRemark = `💦 ${index + 1} - WoW 🌍`;
+        const warpRemark = `BacheBazCarti ${index + 1} - Warp 🇮🇷`;
+        const WoWRemark = `BacheBazCarti ${index + 1} - WoW 🌍`;
         const warpOutbound = buildSingBoxWarpOutbound(proxySettings, warpConfigs, warpRemark, endpoint, '');
         const WoWOutbound = buildSingBoxWarpOutbound(proxySettings, warpConfigs, WoWRemark, endpoint, warpRemark);
         config.endpoints.push(WoWOutbound, warpOutbound);
@@ -674,9 +674,9 @@ export async function getSingBoxCustomConfig(request, env) {
     config.route.rule_set = rule_set;
     const selector = config.outbounds[0];
     const urlTest = config.outbounds[1];
-    selector.outbounds = ['💦 Best Ping 💥'];
+    selector.outbounds = ['BacheBazCarti Best Ping 💥'];
     urlTest.interval = `${bestVLTRInterval}s`;
-    urlTest.tag = '💦 Best Ping 💥';
+    urlTest.tag = 'BacheBazCarti Best Ping 💥';
     let proxyIndex = 1;
     const protocols = [
         ...(VLConfigs ? [atob('VkxFU1M=')] : []),
