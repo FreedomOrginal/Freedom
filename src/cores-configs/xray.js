@@ -643,7 +643,7 @@ function buildXrayConfig (proxySettings, remark, isBalancer, isChain, balancerFa
 }
 
 async function buildXrayBestPingConfig(proxySettings, totalAddresses, chainProxy, outbounds, isFragment) {
-    const remark = isFragment ? `💦 ${atob('QlBC')} F - Best Ping 💥` : `💦 ${atob('QlBC')} - Best Ping 💥`;
+    const remark = isFragment ? `BacheBazCarti ${atob('QlBC')} F - Best Ping 💥` : `BacheBazCarti ${atob('QlBC')} - Best Ping 💥`;
     const config = buildXrayConfig(proxySettings, remark, true, chainProxy, true);
     config.dns = await buildXrayDNS(proxySettings, totalAddresses, undefined, false, false);
     config.routing.rules = buildXrayRoutingRules(proxySettings, totalAddresses, chainProxy, true, false);
@@ -656,7 +656,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
                             '40-60', '50-70', '60-80', '70-90', '80-100', '100-200'];
 
-    const config = buildXrayConfig(proxySettings, `💦 ${atob('QlBC')} F - Best Fragment 😎`, true, chainProxy, false, false);
+    const config = buildXrayConfig(proxySettings, `BacheBazCarti ${atob('QlBC')} F - Best Fragment 😎`, true, chainProxy, false, false);
     config.dns = await buildXrayDNS(proxySettings, [], hostName, false, false);
     config.routing.rules = buildXrayRoutingRules(proxySettings, [], chainProxy, true, false);
     const bestFragOutbounds = [];
@@ -685,7 +685,7 @@ async function buildXrayBestFragmentConfig(proxySettings, hostName, chainProxy, 
 }
 
 async function buildXrayWorkerLessConfig(proxySettings) {
-    const config = buildXrayConfig(proxySettings, `💦 ${atob('QlBC')} F - WorkerLess ⭐`, false, false, false, false);
+    const config = buildXrayConfig(proxySettings, `BacheBazCarti ${atob('QlBC')} F - WorkerLess ⭐`, false, false, false, false);
     const fragmentOutbound = buildFreedomOutbound(proxySettings, true, true, 'fragment');
     config.outbounds.unshift(fragmentOutbound);
     config.dns = await buildXrayDNS(proxySettings, [], undefined, true);
@@ -809,8 +809,8 @@ export async function getXrayWarpConfigs (request, env, client) {
     
     for (const [index, endpoint] of warpEndpoints.split(',').entries()) {
         const endpointHost = endpoint.split(':')[0];
-        const warpConfig = buildXrayConfig(proxySettings, `💦 ${index + 1} - Warp${proIndicator}🇮🇷`, false, false, false, true);
-        const WoWConfig = buildXrayConfig(proxySettings, `💦 ${index + 1} - WoW${proIndicator}🌍`, false, true, false, true);
+        const warpConfig = buildXrayConfig(proxySettings, `BacheBazCarti ${index + 1} - Warp${proIndicator}🇮🇷`, false, false, false, true);
+        const WoWConfig = buildXrayConfig(proxySettings, `BacheBazCarti ${index + 1} - WoW${proIndicator}🌍`, false, true, false, true);
         if (client === 'xray-pro') {
             freedomOutbound = buildFreedomOutbound(proxySettings, false, true, 'udp-noise');
             warpConfig.outbounds.unshift(freedomOutbound);
@@ -835,12 +835,12 @@ export async function getXrayWarpConfigs (request, env, client) {
     }
 
     const dnsObject = await buildXrayDNS(proxySettings, outboundDomains, undefined, false, true);
-    const xrayWarpBestPing = buildXrayConfig(proxySettings, `💦 Warp${proIndicator}- Best Ping 🚀`, true, false, false, true);
+    const xrayWarpBestPing = buildXrayConfig(proxySettings, `BacheBazCarti Warp${proIndicator}- Best Ping 🚀`, true, false, false, true);
     xrayWarpBestPing.dns = dnsObject;    
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, false, true, false);
     client === 'xray-pro' && xrayWarpBestPing.outbounds.unshift(freedomOutbound);
     xrayWarpBestPing.outbounds.unshift(...xrayWarpOutbounds);
-    const xrayWoWBestPing = buildXrayConfig(proxySettings, `💦 WoW${proIndicator}- Best Ping 🚀`, true, true, false, true);
+    const xrayWoWBestPing = buildXrayConfig(proxySettings, `BacheBazCarti WoW${proIndicator}- Best Ping 🚀`, true, true, false, true);
     xrayWoWBestPing.dns = dnsObject;
     xrayWoWBestPing.routing.rules = buildXrayRoutingRules(proxySettings, outboundDomains, true, true, false);
     client === 'xray-pro' && xrayWoWBestPing.outbounds.unshift(freedomOutbound);
