@@ -5,7 +5,7 @@ export async function renderLoginPage () {
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${atob('QlBC')} Login</title>
+    <title>${atob('QlBC')} Login Kos</title>
     <style>
         :root {
             --color: black;
