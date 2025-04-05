@@ -53,7 +53,7 @@ export async function getNormalConfigs(request, env) {
     });
 
     if (outProxy) {
-        let chainRemark = `#${encodeURIComponent('💦 Chain proxy 🔗')}`;
+        let chainRemark = `#${encodeURIComponent('BacheBazCarti Chain proxy 🔗')}`;
         if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
             const regex = /^(?:socks|http):\/\/([^@]+)@/;
             const isUserPass = outProxy.match(regex);
@@ -99,7 +99,7 @@ export async function getHiddifyWarpConfigs (request, env, isPro) {
 
     let configs = '';
     warpEndpoints.split(',').forEach( (endpoint, index) => {
-        configs += `warp://${endpoint}${ isPro ? `?ifp=${noiseCountMin}-${noiseCountMax}&ifps=${noiseSizeMin}-${noiseSizeMax}&ifpd=${noiseDelayMin}-${noiseDelayMax}&ifpm=${hiddifyNoiseMode}` : ''}#${encodeURIComponent(`💦 ${index + 1} - Warp 🇮🇷`)}&&detour=warp://162.159.192.1:2408#${encodeURIComponent(`💦 ${index + 1} - WoW 🌍`)}\n`;
+        configs += `warp://${endpoint}${ isPro ? `?ifp=${noiseCountMin}-${noiseCountMax}&ifps=${noiseSizeMin}-${noiseSizeMax}&ifpd=${noiseDelayMin}-${noiseDelayMax}&ifpm=${hiddifyNoiseMode}` : ''}#${encodeURIComponent(`BacheBazCarti ${index + 1} - Warp 🇮🇷`)}&&detour=warp://162.159.192.1:2408#${encodeURIComponent(`BacheBazCarti ${index + 1} - WoW 🌍`)}\n`;
     });
 
     return new Response(btoa(configs), { 
